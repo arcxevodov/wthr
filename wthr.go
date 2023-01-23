@@ -15,8 +15,8 @@ type Weather struct {
 	Name string `json:"name"`
 }
 
-func GetWeather(city, token string) (Weather, error) {
-	url := fmt.Sprintf("https://api.openweathermap.org/data/2.5/weather?q=%s&units=metric&appid=%s", city, token)
+func GetWeather(city, token, units string) (Weather, error) {
+	url := fmt.Sprintf("https://api.openweathermap.org/data/2.5/weather?q=%s&units=%s&appid=%s", city, units, token)
 	resp, err := http.Get(url)
 	if err != nil {
 		return Weather{}, err
